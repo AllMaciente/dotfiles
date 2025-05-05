@@ -1,3 +1,6 @@
 # fish
 fish_variables
 fishd.tmp.*
+
+# ulauncher
+ext_preferences/

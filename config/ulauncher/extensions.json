@@ -1,0 +1,86 @@
+{
+    "com.github.beobcode.ulauncher-session-actions": {
+        "id": "com.github.beobcode.ulauncher-session-actions",
+        "url": "https://github.com/beobcode/ulauncher-session-actions",
+        "updated_at": "2025-03-31T20:16:56.967169",
+        "last_commit": "78b90d855d41f769a149caf90b5b9811e45fc918",
+        "last_commit_time": "2024-07-08T12:42:04"
+    },
+    "com.github.pascalbe-dev.ulauncher-repo-opener": {
+        "id": "com.github.pascalbe-dev.ulauncher-repo-opener",
+        "url": "https://github.com/pascalbe-dev/ulauncher-repo-opener",
+        "updated_at": "2025-03-31T20:18:42.428515",
+        "last_commit": "6b4330730f1cd009cdb4976a6388eff06221f9e0",
+        "last_commit_time": "2025-01-17T10:19:13"
+    },
+    "com.github.alchemistake.git_code_launch": {
+        "id": "com.github.alchemistake.git_code_launch",
+        "url": "https://github.com/alchemistake/git_code_launch",
+        "updated_at": "2025-03-31T20:20:28.724286",
+        "last_commit": "d39320f7e47a0b3b97bcab4166503956b2015b8e",
+        "last_commit_time": "2024-10-04T14:53:21"
+    },
+    "com.github.lighttigerxiv.ulauncher-bookmarks": {
+        "id": "com.github.lighttigerxiv.ulauncher-bookmarks",
+        "url": "https://github.com/lighttigerXIV/ulauncher-bookmarks",
+        "updated_at": "2025-03-31T20:25:30.871725",
+        "last_commit": "ef8b1e73e76356cee7bc5d46b94a7db8f4c178b7",
+        "last_commit_time": "2023-06-25T09:13:08"
+    },
+    "com.github.plibither8.ulauncher-zoom": {
+        "id": "com.github.plibither8.ulauncher-zoom",
+        "url": "https://github.com/plibither8/ulauncher-zoom",
+        "updated_at": "2025-03-31T20:36:04.586448",
+        "last_commit": "867749adeba2fa3dca73c1952a6c9356831bf00a",
+        "last_commit_time": "2021-08-28T06:12:23"
+    },
+    "com.github.ulauncher.ulauncher-emoji": {
+        "id": "com.github.ulauncher.ulauncher-emoji",
+        "url": "https://github.com/Ulauncher/ulauncher-emoji",
+        "updated_at": "2025-04-01T19:37:11.953409",
+        "last_commit": "827cfe5e1d2f89f742f811f981759787b0654fa9",
+        "last_commit_time": "2023-11-04T18:37:13"
+    },
+    "com.github.eckhoff42.ulauncher-favorite-directories": {
+        "id": "com.github.eckhoff42.ulauncher-favorite-directories",
+        "url": "https://github.com/Eckhoff42/Ulauncher-favorite-directories",
+        "updated_at": "2025-04-05T20:50:15.498732",
+        "last_commit": "ac1deaffb31562a7918b37b6331cce27adc4660e",
+        "last_commit_time": "2022-08-29T14:25:22"
+    },
+    "com.github.gbarre.ulauncher-terminator": {
+        "id": "com.github.gbarre.ulauncher-terminator",
+        "url": "https://github.com/gbarre/ulauncher-terminator",
+        "updated_at": "2025-04-09T10:02:40.948754",
+        "last_commit": "1450499056178fb25a6830a847f63ba385ae7f9d",
+        "last_commit_time": "2025-04-02T08:36:04"
+    },
+    "com.github.jyvern.ulauncher-ssh": {
+        "id": "com.github.jyvern.ulauncher-ssh",
+        "url": "https://github.com/jyvern/ulauncher-ssh",
+        "updated_at": "2025-04-09T11:44:39.858415",
+        "last_commit": "47168e6ea45878787536ae5670612509f5dddced",
+        "last_commit_time": "2021-08-29T16:30:14"
+    },
+    "com.github.hoaper.ulauncher-zh0per": {
+        "id": "com.github.hoaper.ulauncher-zh0per",
+        "url": "https://github.com/Hoaper/ulauncher-zh0per",
+        "updated_at": "2025-04-30T19:46:00.223763",
+        "last_commit": "037f87bfe40ce8012896ccd9089bf7116b25b1de",
+        "last_commit_time": "2024-11-07T15:25:05"
+    },
+    "com.github.paulocod.ulauncher-duck-tools": {
+        "id": "com.github.paulocod.ulauncher-duck-tools",
+        "url": "https://github.com/paulocod/ulauncher-duck-tools",
+        "updated_at": "2025-04-30T19:51:09.922829",
+        "last_commit": "d07c775f454eb042471ab90b6912af73a81b6df9",
+        "last_commit_time": "2025-04-15T17:08:37"
+    },
+    "com.github.sshomaaa.ulauncher-window-switcher": {
+        "id": "com.github.sshomaaa.ulauncher-window-switcher",
+        "url": "https://github.com/sshomaaa/ulauncher-window-switcher",
+        "updated_at": "2025-04-30T19:51:32.517926",
+        "last_commit": "e10772e55c6b301ae883d10f22f9c453044dfc10",
+        "last_commit_time": "2025-04-09T13:25:06"
+    }
+}
