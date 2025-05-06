@@ -9,6 +9,7 @@ PACKAGES=(
   4 "zoxide (Fast directory jumper)" off
   5 "eza (Modern replacement for ls)" off
   6 "gh (GitHub CLI)" off
+  7 "ripgrep (Search tool)" off
 )
 
 # Temporary file to store the selection
@@ -35,7 +36,7 @@ if [ -z "$SELECTED_PACKAGES" ]; then
 fi
 
 # Map selected numbers to package names
-PACKAGE_MAP=("curl" "git" "bashtop" "zoxide" "eza" "gh")
+PACKAGE_MAP=("curl" "git" "bashtop" "zoxide" "eza" "gh" "ripgrep")
 INSTALL_PACKAGES=""
 for choice in $SELECTED_PACKAGES; do
   if [ "${PACKAGE_MAP[$((choice - 1))]}" == "gh" ]; then

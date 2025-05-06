@@ -17,7 +17,8 @@ check_and_install_homebrew() {
 PACKAGES=(
   "ghostty" "Terminal" on
   "yazi" "file manager" off
-    "gh" "GitHub CLI" off
+  "gh" "GitHub CLI" off
+  "ripgrep" "Search tool" off
 )
 
 # Function to display the selection menu
