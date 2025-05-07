@@ -32,6 +32,10 @@ install_github_cli() {
     fi
 }
 
+install_TailScale(){
+    dialog --infobox "Installing TailScale..." 5 40
+    curl -fsSL https://tailscale.com/install.sh | sh
+}
 # List of options for the menu
 cmd=(dialog --clear --separate-output --checklist "Select the packages to install:" 15 50 8)
 options=(
@@ -42,6 +46,7 @@ options=(
     5 "eza (Modern replacement for ls)" off
     6 "gh (GitHub CLI)" off
     7 "ripgrep (Search tool)" off
+    8 "tailScale (private VPN)" off
 )
 choices=$("${cmd[@]}" "${options[@]}" 2>&1 >/dev/tty)
 clear
@@ -56,5 +61,6 @@ for choice in $choices; do
         5) install_package "eza";;
         6) install_github_cli;;
         7) install_package "ripgrep";;
+        8) install_TailScale;;
     esac
 done
