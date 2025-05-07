@@ -30,6 +30,8 @@ install_package() {
         dialog --msgbox "Failed to install $package." 7 40
     fi
 }
+# Call the function to check and install Homebrew
+check_and_install_homebrew
 
 # List of options for the menu
 cmd=(dialog --clear --separate-output --checklist "Select the packages to install:" 26 86 16)
@@ -42,9 +44,6 @@ options=(
 )
 choices=$("${cmd[@]}" "${options[@]}" 2>&1 >/dev/tty)
 clear
-
-# Call the function to check and install Homebrew
-check_and_install_homebrew
 
 # Process the selected choices
 for choice in $choices; do

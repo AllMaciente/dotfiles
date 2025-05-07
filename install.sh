@@ -76,27 +76,7 @@ install_wallpapers() {
 
 copy_configs(){
     dialog --infobox "Configs copied to $HOME/.config" 3 40
-    cp -r configs/* "$HOME"/.config
-}
-
-link_config_content() {
-  local src_dir="$1"       # ex: ./config
-  local dest_base="$2"     # ex: ~/.config
-
-  mkdir -p "$dest_base"
-
-  for item in "$src_dir"/*; do
-    local base=$(basename "$item")
-    local target="$dest_base/$base"
-
-    if [ -e "$target" ] && [ ! -L "$target" ]; then
-      dialog --msgbox "[!] $target already exists and is not a symlink. Skipping..." 5 50
-      continue
-    fi
-
-    ln -sf "$item" "$target"
-    dialog --infobox "[✓] $target → $item" 3 50
-  done
+    cp -r config/* "$HOME"/.config
 }
 
 install_fonts() {
@@ -134,12 +114,11 @@ options=(1 "System update" on
         3 "Create default directories" on
         4 "Create backup of existing configs (to prevent overwritting)" on
         5 "copy configs to $HOME/.config" on
-        6 "symlink configs to $HOME/.config" off
-        7 "install fonts" on
-        8 "install Wallpapers" on
-        9 "Install other packages" off
-        10 "Install other Homebrew packages" off
-        11 "Install other flatpak packages" off
+        6 "install fonts" on
+        7 "install Wallpapers" on
+        8 "Install other packages" off
+        9 "Install other Homebrew packages" off
+        10 "Install other flatpak packages" off
         )
 choices=$("${cmd[@]}" "${options[@]}" 2>&1 >/dev/tty)
 clear
@@ -152,11 +131,10 @@ do
         3) create_default_directories;;
         4) create_backup;;
         5) copy_configs;;
-        6) link_config_dirs "./config" "$HOME/.config";;
-        7) install_fonts;;
-        8) install_wallpapers;;
-        9) bash install/${PKG}/packages.sh;;
-        10) bash install/homebrew.sh;;
-        11) bash install/flatpak.sh;;
+        6) install_fonts;;
+        7) install_wallpapers;;
+        8) bash install/${PKG}/packages.sh;;
+        9) bash install/homebrew.sh;;
+        10) bash install/flatpak.sh;;
     esac
 done
