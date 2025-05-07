@@ -1,47 +1,21 @@
 #!/bin/bash
 # filepath: /home/allan/dotfiles/install/apt/packages.sh
 
-# List of packages available for installation
-PACKAGES=(
-  1 "curl (Data transfer tool)" off
-  2 "git (Version control system)" off
-  3 "bashtop (Interactive process monitor)" off
-  4 "zoxide (Fast directory jumper)" off
-  5 "eza (Modern replacement for ls)" off
-  6 "gh (GitHub CLI)" off
-  7 "ripgrep (Search tool)" off
-)
-
-# Temporary file to store the selection
-TEMP_FILE=$(mktemp)
-
-# Function to display the selection menu
-show_menu() {
-  dialog --clear --separate-output --checklist \
-    "Select the packages to install:" 15 50 8 \
-    "${PACKAGES[@]}" 2> "$TEMP_FILE"
+# Function to check and install a package
+install_package() {
+    local package=$1
+    dialog --infobox "Installing $package..." 5 40
+    sudo apt install -y "$package"
+    if [ $? -eq 0 ]; then
+        dialog --msgbox "$package installed successfully!" 7 40
+    else
+        dialog --msgbox "Failed to install $package." 7 40
+    fi
 }
 
-# Display the menu
-show_menu
-
-# Read the selected packages
-SELECTED_PACKAGES=$(cat "$TEMP_FILE")
-rm -f "$TEMP_FILE"
-
-# Check if anything was selected
-if [ -z "$SELECTED_PACKAGES" ]; then
-  echo "No packages selected. Exiting..."
-  exit 0
-fi
-
-# Map selected numbers to package names
-PACKAGE_MAP=("curl" "git" "bashtop" "zoxide" "eza" "gh" "ripgrep")
-INSTALL_PACKAGES=""
-for choice in $SELECTED_PACKAGES; do
-  if [ "${PACKAGE_MAP[$((choice - 1))]}" == "gh" ]; then
-    # Special case for GitHub CLI installation
-    echo "Installing GitHub CLI..."
+# Function to install GitHub CLI
+install_github_cli() {
+    dialog --infobox "Installing GitHub CLI..." 5 40
     type -p wget >/dev/null || (sudo apt update && sudo apt-get install wget -y)
     sudo mkdir -p -m 755 /etc/apt/keyrings
     out=$(mktemp)
@@ -51,14 +25,36 @@ for choice in $SELECTED_PACKAGES; do
     echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list > /dev/null
     sudo apt update
     sudo apt install gh -y
-  else
-    INSTALL_PACKAGES+="${PACKAGE_MAP[$((choice - 1))]} "
-  fi
-done
+    if [ $? -eq 0 ]; then
+        dialog --msgbox "GitHub CLI installed successfully!" 7 40
+    else
+        dialog --msgbox "Failed to install GitHub CLI." 7 40
+    fi
+}
 
-# Install the selected packages (excluding GitHub CLI)
-if [ -n "$INSTALL_PACKAGES" ]; then
-  echo "Installing packages: $INSTALL_PACKAGES"
-  sudo apt update
-  echo "$INSTALL_PACKAGES" | xargs sudo apt install -y
-fi
+# List of options for the menu
+cmd=(dialog --clear --separate-output --checklist "Select the packages to install:" 15 50 8)
+options=(
+    1 "curl (Data transfer tool)" off
+    2 "git (Version control system)" off
+    3 "bashtop (Interactive process monitor)" off
+    4 "zoxide (Fast directory jumper)" off
+    5 "eza (Modern replacement for ls)" off
+    6 "gh (GitHub CLI)" off
+    7 "ripgrep (Search tool)" off
+)
+choices=$("${cmd[@]}" "${options[@]}" 2>&1 >/dev/tty)
+clear
+
+# Process the selected choices
+for choice in $choices; do
+    case $choice in
+        1) install_package "curl";;
+        2) install_package "git";;
+        3) install_package "bashtop";;
+        4) install_package "zoxide";;
+        5) install_package "eza";;
+        6) install_github_cli;;
+        7) install_package "ripgrep";;
+    esac
+done
