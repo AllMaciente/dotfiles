@@ -19,6 +19,7 @@ PACKAGES=(
   "yazi" "file manager" off
   "gh" "GitHub CLI" off
   "ripgrep" "Search tool" off
+  "spring-cli" "Spring Boot tools" off
 )
 
 # Function to display the selection menu
