@@ -22,6 +22,7 @@ options=(
     6 "LocalSend" off
     7 "PikaBackup" off
     8 "Trayscale (gui for tailScale)" off
+    9 "IntelliJ IDEA Community" off
 )
 choices=$("${cmd[@]}" "${options[@]}" 2>&1 >/dev/tty)
 clear
@@ -37,5 +38,6 @@ for choice in $choices; do
         6) install_flatpak_package "org.localsend.localsend_app";;
         7) install_flatpak_package "org.gnome.World.PikaBackup";;
         8) install_flatpak_package "dev.deedles.Trayscale";;
+        9) install_flatpak_package "com.jetbrains.IntelliJ-IDEA-Community";;
     esac
 done
