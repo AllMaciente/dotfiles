@@ -38,6 +38,10 @@ installFeh(){
     dialog --infobox "Installing feh" 3 40
     sudo apt install -y feh
 }
+installFlameshot(){
+    dialog --infobox "Installing Flameshot" 3 40
+    sudo apt install -y flameshot
+}
 
 cmd=(dialog --clear --separate-output --checklist "Select (with space) what script should do." 26 86 16)
 options=(1 "ghostty terminal (unofficial Ubuntu/Debian package (.deb))" on
@@ -48,7 +52,8 @@ options=(1 "ghostty terminal (unofficial Ubuntu/Debian package (.deb))" on
         6 "ulauncher" on
         7 "picom" on
         8 "feh" on
-        )
+        9 "flameshot" on
+      )
 choices=$("${cmd[@]}" "${options[@]}" 2>&1 >/dev/tty)
 clear
 
@@ -63,5 +68,6 @@ do
         6)  installUlauncher;;
         7)  installPicom;;
         8)  installFeh;;
+        9) installFlameshot;;
         esac
 done 
