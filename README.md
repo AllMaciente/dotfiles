@@ -17,7 +17,7 @@ This is my personal collection of dotfiles — configuration files and scripts I
 Clone this repository to your home directory:
 
 ```bash
-git clone https://github.com/your-username/dotfiles.git ~/dotfiles
+git clone https://github.com/AllMaciente/dotfiles.git ~/dotfiles
 cd ~/dotfiles
 ./install.sh  # or run your setup manually
 ```
