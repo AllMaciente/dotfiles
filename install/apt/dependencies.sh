@@ -42,6 +42,10 @@ installFlameshot(){
     dialog --infobox "Installing Flameshot" 3 40
     sudo apt install -y flameshot
 }
+installZoxide(){
+    dialog --infobox "Installing zoxide" 3 40
+    curl -sSfL https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | sh
+}
 
 cmd=(dialog --clear --separate-output --checklist "Select (with space) what script should do." 26 86 16)
 options=(1 "ghostty terminal (unofficial Ubuntu/Debian package (.deb))" on
@@ -53,6 +57,8 @@ options=(1 "ghostty terminal (unofficial Ubuntu/Debian package (.deb))" on
         7 "picom" on
         8 "feh" on
         9 "flameshot" on
+        10 "zoxide" on
+
       )
 choices=$("${cmd[@]}" "${options[@]}" 2>&1 >/dev/tty)
 clear
@@ -69,5 +75,6 @@ do
         7)  installPicom;;
         8)  installFeh;;
         9) installFlameshot;;
+        10) installZoxide;;
         esac
 done 
