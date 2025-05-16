@@ -7,7 +7,7 @@ install_package() {
     dialog --infobox "Installing $package..." 5 40
     sudo apt install -y "$package"
     if [ $? -eq 0 ]; then
-        dialog --msgbox "$package installed successfully!" 7 40
+        dialog --infobox "$package installed successfully!" 7 40
     else
         dialog --msgbox "Failed to install $package." 7 40
     fi
@@ -26,7 +26,7 @@ install_github_cli() {
     sudo apt update
     sudo apt install gh -y
     if [ $? -eq 0 ]; then
-        dialog --msgbox "GitHub CLI installed successfully!" 7 40
+        dialog --infobox "GitHub CLI installed successfully!" 7 40
     else
         dialog --msgbox "Failed to install GitHub CLI." 7 40
     fi

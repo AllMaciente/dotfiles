@@ -16,36 +16,26 @@ installFishShell(){
         sudo chsh -s /usr/local/bin/fish
     fi
 }
+install_package() {
+    local package=$1
+    dialog --infobox "Installing $package..." 5 40
+    sudo apt install -y "$package"
+    if [ $? -eq 0 ]; then
+        dialog --infobox "$package installed successfully!" 7 40
+    else
+        dialog --msgbox "Failed to install $package." 7 40
+    fi
+}
 
-installI3wm(){
-    dialog --infobox "Installing i3 window manager" 3 40
-    sudo apt install -y i3
-}
-InstallPolybar(){
-    dialog --infobox "Installing polybar" 3 40
-    sudo apt install -y polybar
-}
 
 installUlauncher(){
     dialog --infobox "Installing ulauncher" 3 40
     sudo add-apt-repository universe -y && sudo add-apt-repository ppa:agornostal/ulauncher -y && sudo apt update && sudo apt install ulauncher
-}
-installPicom(){
-    dialog --infobox "Installing picom" 3 40
-    sudo apt install -y picom
-}
-installFeh(){
-    dialog --infobox "Installing feh" 3 40
-    sudo apt install -y feh
-}
-installFlameshot(){
-    dialog --infobox "Installing Flameshot" 3 40
-    sudo apt install -y flameshot
-}
-installZoxide(){
+}installZoxide(){
     dialog --infobox "Installing zoxide" 3 40
     curl -sSfL https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | sh
 }
+insta
 
 cmd=(dialog --clear --separate-output --checklist "Select (with space) what script should do." 26 86 16)
 options=(1 "ghostty terminal (unofficial Ubuntu/Debian package (.deb))" on
@@ -58,7 +48,7 @@ options=(1 "ghostty terminal (unofficial Ubuntu/Debian package (.deb))" on
         8 "feh" on
         9 "flameshot" on
         10 "zoxide" on
-
+        11 "dunst" on
       )
 choices=$("${cmd[@]}" "${options[@]}" 2>&1 >/dev/tty)
 clear
@@ -69,12 +59,13 @@ do
         1)  installGhostty;;
         2)  bash install/homebrew.sh;;
         3)  installFishShell;;
-        4)  installI3wm;;
-        5)  InstallPolybar;;
+        4)  install_package "i3";;
+        5)  install_package "polybar";;
         6)  installUlauncher;;
-        7)  installPicom;;
-        8)  installFeh;;
-        9) installFlameshot;;
+        7)  install_package "picom";;
+        8)  install_package "feh";;
+        9)  install_package "flameshot";;
         10) installZoxide;;
+        11) install_package "dunst";;
         esac
 done 
