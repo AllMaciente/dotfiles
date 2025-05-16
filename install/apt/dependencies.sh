@@ -49,6 +49,7 @@ options=(1 "ghostty terminal (unofficial Ubuntu/Debian package (.deb))" on
         9 "flameshot" on
         10 "zoxide" on
         11 "dunst" on
+        12 "starship" on
       )
 choices=$("${cmd[@]}" "${options[@]}" 2>&1 >/dev/tty)
 clear
@@ -67,5 +68,6 @@ do
         9)  install_package "flameshot";;
         10) installZoxide;;
         11) install_package "dunst";;
+        12) install_package "starship";;
         esac
 done 

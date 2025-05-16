@@ -45,14 +45,14 @@ create_backup() {
     fi
   done
 
-  dialog --msgbox "Backup completo salvo em:\n$backup_dir" 6 50
+  dialog --infobox "Backup completo salvo em:\n$backup_dir" 6 50
 }
 install_wallpapers() {
   local src_dir="$PWD/wallpapers"
   local dest_dir="$HOME/Pictures/wallpapers"
 
   if [ ! -d "$src_dir" ]; then
-    dialog --msgbox "Pasta 'wallpapers' não encontrada no repositório." 5 50
+    dialog --infobox "Pasta 'wallpapers' não encontrada no repositório." 5 50
     return
   fi
 
@@ -70,7 +70,7 @@ install_wallpapers() {
     fi
   done
 
-  dialog --msgbox "Wallpapers copiados com sucesso para $dest_dir!" 5 50
+  dialog --infobox "Wallpapers copiados com sucesso para $dest_dir!" 5 50
 }
 
 
@@ -84,7 +84,7 @@ install_fonts() {
   local dest_dir="$HOME/.local/share/fonts"
 
   if [ ! -d "$src_dir" ]; then
-    dialog --msgbox "Pasta 'fonts' não encontrada no repositório." 5 50
+    dialog --infobox "Pasta 'fonts' não encontrada no repositório." 5 50
     return
   fi
 
@@ -103,7 +103,7 @@ install_fonts() {
   done
 
   fc-cache -f > /dev/null 2>&1
-  dialog --msgbox "Fontes copiadas com sucesso e cache atualizado!" 5 50
+  dialog --infobox "Fontes copiadas com sucesso e cache atualizado!" 5 50
 }
 
 

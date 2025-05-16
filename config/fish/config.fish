@@ -1,7 +1,7 @@
 if status is-interactive
     # zoxide (substitui o cd)
     zoxide init fish --cmd cd | source
-
+    
     # Linuxbrew
     eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
@@ -10,7 +10,8 @@ if status is-interactive
         echo "Instalando fisher..."
         curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher
     end
-
-    # Atualiza plugins se necessário
-    fisher update
 end
+# starship (prompt)
+starship init fish | source
+
+clear
