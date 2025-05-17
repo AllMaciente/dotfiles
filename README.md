@@ -29,6 +29,7 @@ Some of these configurations are inspired by or adapted from:
 
 - [Keyitdev/dotfiles](https://github.com/Keyitdev/dotfiles) (i3wm)
 - [dikiaap/dotfiles](https://github.com/dikiaap/dotfiles) (dunst)
+- [adi1090x/rofi/](https://github.com/adi1090x/rofi/) (rofi)
 
 If I missed giving proper credit for something, please open an issue!#
 
