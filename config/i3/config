@@ -80,7 +80,7 @@ bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
 
 # toggle tiling / floating
-bindsym $mod+Shift+space floating toggle
+# bindsym $mod+Shift+space floating toggle
 
 # change focus between tiling / floating windows
 #bindsym $mod+space focus mode_toggle
@@ -92,8 +92,26 @@ bindsym $mod+a focus parent
 #bindsym $mod+d focus child
 
 # ULuncher
-bindsym $mod+space exec "ulauncher-toggle"
+# bindsym $mod+space exec "ulauncher-toggle"
 
+# rofi
+# Launcher principal
+bindsym $mod+space exec --no-startup-id ~/.config/rofi/launchers/type-2/launcher.sh
+
+# Entra no modo "rofi-menus"
+bindsym $mod+Shift+space mode "rofi-menus"
+
+# Definição do modo
+mode "rofi-menus" {
+    bindsym f exec --no-startup-id ~/.config/rofi/launchers/type-3/launcher.sh, mode "default"
+    bindsym p exec --no-startup-id ~/.config/rofi/applets/bin/powermenu.sh, mode "default"
+    bindsym a exec --no-startup-id ~/.config/rofi/applets/bin/apps.sh, mode "default"
+    bindsym v exec --no-startup-id ~/.config/rofi/applets/bin/volume.sh, mode "default"
+    bindsym q exec --no-startup-id ~/.config/rofi/applets/bin/quicklinks.sh, mode "default"
+
+    bindsym Escape mode "default"
+    bindsym Return mode "default"
+}
 # take a screenshot
 bindsym Print exec "flameshot gui"
 

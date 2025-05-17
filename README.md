@@ -8,6 +8,7 @@ This is my personal collection of dotfiles — configuration files and scripts I
 - **Terminal:** [`ghostty`](https://ghostty.org/)
 - **Window Manager:** [`i3`](https://i3wm.org/)
 - **Bar:** [`polybar`](https://github.com/polybar/polybar)
+- **Application Launcher:** [`rofi`](https://github.com/davatorium/rofi)
 - **Notification Deamon:** [`dunst`](https://github.com/dunst-project/dunst)
 - **Tools:** [`zoxide`](https://github.com/ajeetdsouza/zoxide)
 - **Custom aliases and functions**

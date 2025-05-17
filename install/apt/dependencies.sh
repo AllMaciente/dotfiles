@@ -28,9 +28,6 @@ install_package() {
 }
 
 
-installUlauncher(){
-    dialog --infobox "Installing ulauncher" 3 40
-    sudo add-apt-repository universe -y && sudo add-apt-repository ppa:agornostal/ulauncher -y && sudo apt update && sudo apt install ulauncher
 }installZoxide(){
     dialog --infobox "Installing zoxide" 3 40
     curl -sSfL https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | sh
@@ -43,7 +40,7 @@ options=(1 "ghostty terminal (unofficial Ubuntu/Debian package (.deb))" on
         3 "fish shell" on
         4 "i3 window manager" on
         5 "polybar" on
-        6 "ulauncher" on
+        6 "rofi" on
         7 "picom" on
         8 "feh" on
         9 "flameshot" on
@@ -62,7 +59,7 @@ do
         3)  installFishShell;;
         4)  install_package "i3";;
         5)  install_package "polybar";;
-        6)  installUlauncher;;
+        6)  install_package "rofi";;
         7)  install_package "picom";;
         8)  install_package "feh";;
         9)  install_package "flameshot";;
