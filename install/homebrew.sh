@@ -43,6 +43,7 @@ options=(
     5 "Install ripgrep (Search Tool)" off
     6 "Install spring-cli (Spring Boot Tools)" off
     7 "starship (Prompt)" off
+    8 "spicetify-cli (Spotify Customization)" off
 )
 choices=$("${cmd[@]}" "${options[@]}" 2>&1 >/dev/tty)
 clear
@@ -57,5 +58,6 @@ for choice in $choices; do
         5) install_package "ripgrep";;
         6) install_spring_cli;;
         7) install_package "starship";;
+        8) install_package "spicetify-cli";;
     esac
 done
