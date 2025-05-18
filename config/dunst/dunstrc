@@ -47,22 +47,22 @@
     mouse_right_click = close_all
 
 [urgency_low]
-    background = "#232323"
-    foreground = "#a8a8a8"
+    background = "#1a1b26"
+    foreground = "#565f89"
     timeout = 10
     default_icon = dialog-information
 
 [urgency_normal]
-    background = "#232323"
-    foreground = "#a8a8a8"
+    background = "#1a1b26"
+    foreground = "#c0caf5"
     timeout = 10
     override_pause_level = 30
     default_icon = dialog-information
 
 [urgency_critical]
-    background = "#d64e4e"
-    foreground = "#f0e0e0"
-    frame_color = "#d64e4e"
+    background = "#f7768e"
+    foreground = "#1a1b26"
+    frame_color = "#f7768e"
     timeout = 0
     override_pause_level = 60
-    default_icon = dialog-warnings
+    default_icon = dialog-warning
