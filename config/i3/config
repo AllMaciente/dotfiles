@@ -18,7 +18,7 @@ exec_always --no-startup-id sh -c "sleep 1 && picom --config ~/.config/picom.con
 # run dunst
 exec --no-startup-id dunst
 # set Wallpaper
-exec --no-startup-id feh --bg-scale ~/Pictures/wallpapers/Creation\ of\ adam\ -\ ascii.jpeg
+exec --no-startup-id feh --bg-scale ~/Pictures/wallpapers/Creation\ of\ adam\ -\ ascii_tokyo-night.png
 
 
 # start i3 components
