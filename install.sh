@@ -60,16 +60,7 @@ install_wallpapers() {
 
   dialog --infobox "Copiando wallpapers para $dest_dir..." 3 45
   sleep 1
-
-  for wallpaper in "$src_dir"/*; do
-    if [ -f "$wallpaper" ]; then
-      cp -u "$wallpaper" "$dest_dir/"
-      local name=$(basename "$wallpaper")
-      dialog --infobox "Wallpaper '$name' copiado." 3 45
-      sleep 0.3
-    fi
-  done
-
+  cp -r "$src_dir"/* "$dest_dir"
   dialog --infobox "Wallpapers copiados com sucesso para $dest_dir!" 5 50
 }
 
