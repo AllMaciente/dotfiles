@@ -3,7 +3,7 @@
 install_flatpak_package() {
     local package=$1
     dialog --infobox "Installing $package..." 5 40
-    flatpak install -y "$package"
+    flatpak install --user -y "$package"
     if [ $? -eq 0 ]; then
         dialog --msgbox "$package installed successfully!" 7 40
     else
@@ -24,6 +24,7 @@ options=(
     8 "Trayscale (gui for tailScale)" off
     9 "IntelliJ IDEA Community" off
     10 "PolyMC (minecraft laucher)" off
+    11 "Lutris (games)" off
 )
 choices=$("${cmd[@]}" "${options[@]}" 2>&1 >/dev/tty)
 clear
@@ -41,5 +42,6 @@ for choice in $choices; do
         8) install_flatpak_package "dev.deedles.Trayscale";;
         9) install_flatpak_package "com.jetbrains.IntelliJ-IDEA-Community";;
         10) install_flatpak_package "org.polymc.PolyMC";;
+        11) install_flatpak_package "net.lutris.Lutris";;
     esac
 done
