@@ -36,14 +36,13 @@ check_and_install_homebrew
 # List of options for the menu
 cmd=(dialog --clear --separate-output --checklist "Select the packages to install:" 26 86 16)
 options=(
-    1 "Install ghostty (Terminal)" off
-    2 "Install zoxide (Z Shell Plugin)" off
-    3 "Install yazi (File Manager)" off
-    4 "Install gh (GitHub CLI)" off
-    5 "Install ripgrep (Search Tool)" off
-    6 "Install spring-cli (Spring Boot Tools)" off
-    7 "starship (Prompt)" off
-    8 "spicetify-cli (Spotify Customization)" off
+    1 "Install zoxide (Z Shell Plugin)" off
+    2 "Install yazi (File Manager)" off
+    3 "Install gh (GitHub CLI)" off
+    4 "Install ripgrep (Search Tool)" off
+    5 "Install spring-cli (Spring Boot Tools)" off
+    6 "starship (Prompt)" off
+    7 "spicetify-cli (Spotify Customization)" off
 )
 choices=$("${cmd[@]}" "${options[@]}" 2>&1 >/dev/tty)
 clear
@@ -51,13 +50,12 @@ clear
 # Process the selected choices
 for choice in $choices; do
     case $choice in
-        1) install_package "ghostty";;
-        2) install_package "zoxide";;
-        3) install_package "yazi";;
-        4) install_package "gh";;
-        5) install_package "ripgrep";;
-        6) install_spring_cli;;
-        7) install_package "starship";;
-        8) install_package "spicetify-cli";;
+        1) install_package "zoxide";;
+        2) install_package "yazi";;
+        3) install_package "gh";;
+        4) install_package "ripgrep";;
+        5) install_spring_cli;;
+        6) install_package "starship";;
+        7) install_package "spicetify-cli";;
     esac
 done
