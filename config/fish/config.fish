@@ -4,7 +4,7 @@ if status is-interactive
     
     # Linuxbrew
     eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-
+    alias ruv="uv run main.py"
     # fisher plugin manager
     if not functions -q fisher
         echo "Instalando fisher..."
