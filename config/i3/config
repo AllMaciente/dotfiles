@@ -9,6 +9,10 @@ font pango:0xProtoNerdFont-Regular 10
 
 exec --no-startup-id dex --autostart --environment i3
 
+# run autoTiling
+exec --no-startup-id ~/.config/i3/i3-autotiling/.venv/bin/python ~/.config/i3/i3-autotiling/autotiling.py
+
+
 # run polybar
 exec_always --no-startup-id sh -c "killall polybar; polybar mybar"
 

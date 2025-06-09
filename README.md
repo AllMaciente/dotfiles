@@ -23,6 +23,9 @@ cd ~/dotfiles
 ./install.sh  # or run your setup manually
 ```
 
+Install the Dependency for Autotiling
+[Autotiling Setup](autotiling)
+
 ## 🙏 Inspirations & Credits
 
 Some of these configurations are inspired by or adapted from:
@@ -31,6 +34,7 @@ Some of these configurations are inspired by or adapted from:
 - [dikiaap/dotfiles](https://github.com/dikiaap/dotfiles) (dunst)
 - [adi1090x/rofi/](https://github.com/adi1090x/rofi/) (rofi)
 - [tokyo-night/wallpapers](https://github.com/tokyo-night/wallpapers) (wallpapers)
+- [olemartinorg/i3-alternating-layout](https://github.com/olemartinorg/i3-alternating-layout) (Autotiling)
 
 If I missed giving proper credit for something, please open an issue!#
 
