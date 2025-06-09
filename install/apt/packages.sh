@@ -36,6 +36,10 @@ install_TailScale(){
     dialog --infobox "Installing TailScale..." 5 40
     curl -fsSL https://tailscale.com/install.sh | sh
 }
+install_UV(){
+    dialog --infobox "Installing Uv" 5 40
+    curl -LsSf https://astral.sh/uv/install.sh | sh
+}
 # List of options for the menu
 cmd=(dialog --clear --separate-output --checklist "Select the packages to install:" 15 50 8)
 options=(
@@ -47,6 +51,7 @@ options=(
     6 "gh (GitHub CLI)" off
     7 "ripgrep (Search tool)" off
     8 "tailScale (private VPN)" off
+    9 "UV (Python Project Manager)" off
 )
 choices=$("${cmd[@]}" "${options[@]}" 2>&1 >/dev/tty)
 clear
@@ -62,5 +67,6 @@ for choice in $choices; do
         6) install_github_cli;;
         7) install_package "ripgrep";;
         8) install_TailScale;;
+        9) install_UV;;
     esac
 done
