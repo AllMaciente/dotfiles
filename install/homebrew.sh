@@ -43,6 +43,7 @@ options=(
     5 "Install spring-cli (Spring Boot Tools)" off
     6 "starship (Prompt)" off
     7 "spicetify-cli (Spotify Customization)" off
+    8 "tldr Simplified and community-driven man pages." off
 )
 choices=$("${cmd[@]}" "${options[@]}" 2>&1 >/dev/tty)
 clear
@@ -57,5 +58,6 @@ for choice in $choices; do
         5) install_spring_cli;;
         6) install_package "starship";;
         7) install_package "spicetify-cli";;
+        8) install_package "tldr";;
     esac
 done
