@@ -1,0 +1,15 @@
+title = " "
+config-file = keybindConfig
+
+clipboard-read = allow
+clipboard-write = allow
+
+cursor-invert-fg-bg = true
+cursor-opacity = 0.5
+cursor-style = underline
+cursor-click-to-move = true
+window-decoration = false
+font-family = "JetBrainsMono Nerd Font"
+
+theme = "tokyonight"
+background-opacity = 0.5
