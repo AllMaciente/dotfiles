@@ -157,13 +157,7 @@
     
     
 "hyprland/workspaces": {
-	"format": "{icon}",
-	"format-icons": {
-	"default": "",
-	"active": "",
-	//"default": "○",
-	//"default": "●"
-	},
+	"format": "{name}"
 },
 
 "wlr/workspaces": {
