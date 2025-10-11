@@ -21,5 +21,10 @@ return {
       statuscolumn = { enabled = true },
       words = { enabled = true },
     },
+    keys = {
+    	{"<leader>e",function() Snacks.explorer() end, desc = "file Explorer"},
+	{"<c-/>", function() Snacks.terminal() end, desc = "Toggle Terminal"},
+	{ "<leader>gg", function() Snacks.lazygit() end, desc = "Lazygit" },
+    }
   }
 }
