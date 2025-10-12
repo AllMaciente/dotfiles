@@ -1,10 +1,10 @@
 if status is-interactive
     # zoxide (substitui o cd)
-    zoxide init fish --cmd cd | source
+    zoxide init fish | source
     
     # Linuxbrew
     eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-    alias ruv="uv run main.py"
+    alias ruv="uv run"
     alias clip="wl-copy"
     alias dot="chezmoi"
     alias kanata-on='systemctl --user start kanata.service'
