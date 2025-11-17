@@ -1,7 +1,5 @@
 if status is-interactive
-    # zoxide (substitui o cd)
     zoxide init fish | source
-    
     # Linuxbrew
     eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
     alias ruv="uv run"
