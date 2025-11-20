@@ -16,16 +16,14 @@ pkill waybar && waybar &
 # mas geralmente reiniciar ajuda se estiver linkado:
 pkill dunst && dunst &
 
-# 5. Configurar Ghostty
-# O Ghostty lê as sequências de escape do terminal. 
-# Vamos forçar a atualização enviando a sequência para todos os terminais abertos.
-# (O Pywal já faz isso parcialmente, mas podemos garantir)
-cat ~/.cache/wal/sequences > /dev/pts/[0-9]* 2>/dev/null
-
 # 6. Configurar Tmux
 # Se seu tmux.conf tiver "source-file ~/.cache/wal/colors-tmux.conf"
 tmux source-file ~/.config/tmux/tmux.conf
 
+# Atualiza o Alacritty (opcional, geralmente ele faz hot-reload sozinho)
+# O simples fato do arquivo .toml ser reescrito pelo wal já deve disparar a mudança.
+# Se não mudar, você pode forçar 'tocando' no arquivo de config principal:
+touch ~/.config/alacritty/alacritty.toml
 # 7. Configurar Alacritty (se ainda usar)
 # O Pywal geralmente atualiza o alacritty se configurado, nada a fazer aqui se o wal já roda.
 
