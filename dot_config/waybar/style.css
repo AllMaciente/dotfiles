@@ -15,17 +15,17 @@
 }
 
 window#waybar {
-  background: #1a1b26;
+  background: @background;
   /*  border-radius: 15px; */
   /*  border: 2px solid #124323; */
   /* border: 0px solid #A1BDCE; */
-  border: 3px solid #24283b;
+  border: 3px solid @color1;
   border-radius: 10px;
 }
 
 tooltip {
-  background: #1a1b26;
-  color: #787c99;
+  background: @background;
+  color: @color8;
   font-size: 13px;
   border-radius: 7px;
   /* border: 2px solid #101a24; */
