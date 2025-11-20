@@ -25,7 +25,9 @@ tmux source-file ~/.config/tmux/tmux.conf
 # Se não mudar, você pode forçar 'tocando' no arquivo de config principal:
 touch ~/.config/alacritty/alacritty.toml
 # 7. Configurar Alacritty (se ainda usar)
-# O Pywal geralmente atualiza o alacritty se configurado, nada a fazer aqui se o wal já roda.
+# O Pywal geralmte atualiza o alacritty se configurado, nada a fazer aqui se o wal já roda.
 
+# Envia o sinal SIGUSR1 para todos os processos 'nvim'
+pkill -USR1 nvim
 # 8. Notificação
 notify-send "Tema alterado" "Wallpaper e cores atualizados!"
