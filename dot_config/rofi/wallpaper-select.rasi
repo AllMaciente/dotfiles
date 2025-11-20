@@ -1,0 +1,68 @@
+configuration {
+    modi: "dmenu";
+    show-icons: true;
+    drun-display-format: "{name}";
+    font: "JetBrainsMono Nerd Font 10";
+}
+
+window {
+    width: 60%;
+    height: 50%;
+    border: 2px;
+    border-color: @selected-active-background;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+/* Importa as cores do Pywal para o próprio menu do Rofi ficar temático */
+@import "~/.cache/wal/colors-rofi-dark.rasi"
+
+mainbox {
+    children: [inputbar, listview];
+    spacing: 10px;
+}
+
+inputbar {
+    children: [prompt, entry];
+    background-color: transparent;
+    padding: 5px;
+}
+
+entry {
+    placeholder: "Pesquisar wallpaper...";
+    background-color: transparent;
+    text-color: @foreground;
+}
+
+listview {
+    columns: 4;   /* 4 colunas de imagens */
+    lines: 3;     /* 3 linhas */
+    spacing: 10px;
+    cycle: false;
+    dynamic: true;
+    layout: vertical;
+}
+
+element {
+    orientation: vertical; /* Ícone em cima, texto embaixo */
+    padding: 10px;
+    border-radius: 8px;
+}
+
+element-icon {
+    size: 150px;  /* Tamanho da miniatura */
+    horizontal-align: 0.5;
+}
+
+element-text {
+    horizontal-align: 0.5;
+    vertical-align: 0.5;
+    background-color: transparent;
+    text-color: inherit;
+}
+
+element selected {
+    background-color: @selected-active-background;
+    text-color: @background;
+    border-radius: 8px;
+}
