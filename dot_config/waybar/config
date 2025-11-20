@@ -26,8 +26,8 @@
 
 
 "custom/led": {
-    "format": "<span color='#021c18'>󰍿</span> <span color='#313436'></span> ",
-    "format-alt": "󰍿 <span color='#bbc2c7'></span> ",
+    "format": "<span color='@background'>󰍿</span> <span color='@color8'></span> ",
+    "format-alt": "󰍿 <span color='@foreground'></span> ",
     "on-click": "~/mouse.sh",
     "tooltip": false,
 },
@@ -35,7 +35,7 @@
 "upower": {
      "icon-size": 20,
       "format": "",
-     "format-alt": "{}<span color='orange'>[{time}]</span>",
+     "format-alt": "{}<span color='@color2'>[{time}]</span>",
      "tooltip": true,
      "tooltip-spacing": 20,
       "on-click-right": "pkill waybar & hyprctl dispatch exec waybar"
@@ -79,7 +79,7 @@
 
 "mpris": {
 	"format": "{player_icon} {dynamic}",
-	"format-paused": "<span color='grey'>{status_icon} {dynamic}</span>",
+	"format-paused": "<span color='@color8'>{status_icon} {dynamic}</span>",
 	"max-length": 50,
 	"player-icons": {
 		"default": "⏸",
@@ -305,9 +305,9 @@
             "on-scroll": 1,
             "on-click-right": "mode",
             "format": {
-                "months": "<span color='#7aa2f7'><b>{}</b></span>",
-                "weekdays": "<span color='#7dc4e4'><b>{}</b></span>",
-                "today": "<span color='#bb9af7'><b>{}</b></span>"
+                "months": "<span color='@color5'><b>{}</b></span>",
+                "weekdays": "<span color='@color6'><b>{}</b></span>",
+                "today": "<span color='@color5'><b>{}</b></span>"
             }
         },
         "actions": {
@@ -328,7 +328,7 @@
         },
         "format": "{icon}",
         "rotate": 0,
-        "format-charging": "<span color='#a6d189'>󱐋</span>",
+        "format-charging": "<span color='@color3'>󱐋</span>",
         "format-plugged": "󰂄",
        // "format-alt": "<<span weight='bold' color='#c2864a'>{time} <span weight='bold' color='white'>| <span weight='bold' color='#82d457'>{capacity}%</span></span></span>",
         "format-icons": ["󰝦","󰪞","󰪟","󰪠","󰪡","󰪢","󰪣","󰪤","󰪥"],

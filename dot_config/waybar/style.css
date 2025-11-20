@@ -10,7 +10,7 @@
 #custom-notification {
   font-family: "JetBrains Mono Nerd Font";
   font-size: 17px;
-  color: #c0caf5;
+  color: @foreground;
   margin: 2px 0px 0px 0px;
 }
 
@@ -32,7 +32,7 @@ tooltip {
 }
 #workspaces {
   background: rgba(23, 23, 23, 0);
-  color: #c0caf5;
+  color: @foreground;
   box-shadow: none;
   text-shadow: none;
   border-radius: 9px;
@@ -44,7 +44,7 @@ tooltip {
 
 #workspaces button {
   background: rgba(23, 23, 23, 0);
-    color: #c0caf5;
+    color: @foreground;
   box-shadow: none;
   text-shadow: none;
   border-radius: 9px;
@@ -56,7 +56,7 @@ tooltip {
 
 #workspaces button.active {
   /* background-image: url("/home/anik/Documents/bar1.png");*/
-  color: #72d792;
+  color: @color6;
   transition: all 0.3s ease;
   padding-left: 4px;
   padding-right: 4px;
@@ -65,7 +65,7 @@ tooltip {
 
 #workspaces button:hover {
   background: none;
-  color: #72d792;
+  color: @color6;
   animation: ws_hover 20s ease-in-out 1;
   transition: all 0.5s cubic-bezier(0.55, -0.68, 0.48, 1.682);
 }
@@ -108,7 +108,7 @@ tooltip {
   min-height: 16px;
   font-weight: bold;
   font-size: 13px;
-  color: #9488e3;
+  color: @color4;
 }
 
 #tray menu separator {
@@ -125,20 +125,20 @@ tooltip {
 #custom-mouse {
   font-size: 14px;
   margin-bottom: 6px;
-  background: #161320;
+  background: @background;
 }
 
 #custom-power {
   font-size: 15px;
-  color: #ffffff;
-  background: rgba(22, 19, 32, 0.9);
+  color: @foreground;
+  background: alpha(@background, 0.9);
   margin: 6px 0px 6px 0px;
   padding-left: 4px;
   padding-right: 4px;
 }
 
 #backlight {
-  color: #7dc4e4;
+  color: @color6;
   background: rgba(23, 23, 23, 0);
   font-weight: normal;
   font-size: 19px;
@@ -148,8 +148,8 @@ tooltip {
 }
 #bluetooth,
 #custom-cliphist {
-  color: #e6e7e7;
-  background: #161320;
+  color: @foreground;
+  background: @background;
   opacity: 1;
   margin: 4px 0px 4px 0px;
   padding-left: 4px;
@@ -158,7 +158,7 @@ tooltip {
 #battery {
   font-weight: normal;
   font-size: 22px;
-  color: #a6d189;
+  color: @color3;
   background: rgba(23, 23, 23, 0);
   opacity: 1;
   margin: 0px 0px 0px 0px;
@@ -167,7 +167,7 @@ tooltip {
 }
 
 #idle_inhibitor {
-  color: #24966e;
+  color: @color3;
   background: @bar-bg;
   opacity: 1;
   margin: 4px 0px 4px 0px;
@@ -175,7 +175,7 @@ tooltip {
   padding-right: 4px;
 }
 #clock {
-  color: #c0caf5;
+  color: @foreground;
   font-size: 15px;
   font-weight: 900;
   font-family: "JetBrains Mono Nerd Font";
@@ -189,7 +189,7 @@ tooltip {
 #pulseaudio {
   font-weight: normal;
   font-size: 18px;
-  color: #7dc4e4;
+  color: @color6;
   background: rgba(22, 19, 32, 0);
   opacity: 1;
   margin: 0px 0px 0px 0px;
@@ -199,11 +199,11 @@ tooltip {
 #cpu {
   font-weight: normal;
   font-size: 22px;
-  color: #ff9e64;
+  color: @color2;
 }
 #custom-led {
-  background: #427287;
-  color: #ffffff;
+  background: @color1;
+  color: @foreground;
   margin-top: 7px;
   margin-bottom: 7px;
   padding-left: 6px;
@@ -216,10 +216,10 @@ tooltip {
 #memory {
   font-weight: normal;
   font-size: 22px;
-  color: #bb9af7;
+  color: @color5;
 }
 #mpris {
-  color: white;
+  color: @foreground;
   animation: repeat;
   animation-name: blink;
   animation-duration: 3s;
@@ -230,11 +230,11 @@ tooltip {
 
 @keyframes blink {
   to {
-    color: #4a4a4a;
+    color: @color8;
   }
 }
 #network {
-  color: #e0af68;
+  color: @color11;
   font-weight: normal;
   font-size: 19px;
   padding-right: 4px;
@@ -245,7 +245,7 @@ tooltip {
 #taskbar,
 #custom-theme,
 #custom-menu {
-  color: #e8edf0;
+  color: @foreground;
   background: rgba(23, 23, 23, 0);
   margin: 0px 0px 0px 0px;
   padding-left: 1px;
@@ -257,7 +257,7 @@ tooltip {
 #custom-wallchange,
 #custom-wbar,
 #window {
-  color: #a1bdce;
+  color: @color4;
   font-family: "Martian Mono";
 }
 #custom-l_end,
@@ -268,7 +268,7 @@ tooltip {
 #cava,
 #upower#headset,
 #upower {
-  color: #a6d189;
+  color: @color3;
 }
 #mpris {
   font-size: 15px;
@@ -276,7 +276,7 @@ tooltip {
 }
 #custom-rr_end {
   font-weight: normal;
-  color: #e8edf0;
+  color: @foreground;
   background: rgba(23, 23, 23, 0);
   opacity: 1;
   margin: 0px 0px 0px 0px;
@@ -286,7 +286,7 @@ tooltip {
 
 #backlight-slider slider,
 #pulseaudio-slider slider {
-  background: #a1bdce;
+  background: @color4;
   background-color: transparent;
   box-shadow: none;
   margin-right: 7px;
@@ -299,22 +299,22 @@ tooltip {
   min-height: 10px;
   margin-bottom: -4px;
   border-radius: 8px;
-  background: #1a1b26;
+  background: @background;
 }
 
 #backlight-slider highlight,
 #pulseaudio-slider highlight {
   border-radius: 8px;
-  background-color: #7dc4e4;
+  background-color: @color6;
 }
 
 #battery.charging,
 #battery.plugged {
-  color: #e8edf0;
+  color: @foreground;
 }
 
 #battery.critical:not(.charging) {
-  color: red;
+  color: @color2;
 }
 
 #taskbar {
@@ -361,7 +361,7 @@ tooltip {
 
 #custom-expand {
   min-width: 25px;
-  color: #a1bdce;
+  color: @color4;
   font-size: 16px;
 }
 
