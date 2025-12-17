@@ -3,8 +3,7 @@ if status is-interactive
     # Linuxbrew
     eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
     alias ruv="uv run"
-    alias clip="wl-copy"
-    alias dot="chezmoi"
+    alias clip="wl-copy"  
     alias kanata-on='systemctl --user start kanata.service'
     alias kanata-off='systemctl --user stop kanata.service'
     # fisher plugin manager
