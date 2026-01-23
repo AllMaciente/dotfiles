@@ -6,6 +6,8 @@ if status is-interactive
     alias clip="wl-copy"  
     alias kanata-on='systemctl --user start kanata.service'
     alias kanata-off='systemctl --user stop kanata.service'
+    alias vpg='export $(grep -v "^#" .env | xargs) && vd $DATABASE_URL'
+    alias vmg='export $(grep -v "^#" .env | xargs) && vd $MONGO_URI'
     # fisher plugin manager
     if not functions -q fisher
         echo "Instalando fisher..."
