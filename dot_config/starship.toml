@@ -70,9 +70,6 @@ symbol = ".NET "
 [directory]
 read_only = " ro"
 
-[docker_context]
-symbol = "docker "
-
 [elixir]
 symbol = "exs "
 
