@@ -24,7 +24,6 @@ This repository is structured to be managed by `chezmoi`. The main configuration
 | `dunst/`          | Dunst notification daemon configuration.                    |
 | `fastfetch/`      | Fastfetch system information tool configuration.            |
 | `fish/`           | Fish shell configuration, functions, and plugins.           |
-| `ghostty/`        | Ghostty terminal emulator configuration.                    |
 | `hypr/`           | Hyprland Wayland compositor configuration.                  |
 | `kanata/`         | Kanata keyboard remapper configuration.                     |
 | `nvim/`           | Neovim text editor configuration with Lua and plugins.      |
