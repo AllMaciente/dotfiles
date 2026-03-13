@@ -1,33 +1,35 @@
 #!/bin/bash
 WALLPAPER="$1"
 
-# 1. Aplicar Wallpaper (SWWW com transição)
+if [ -z "$WALLPAPER" ]; then
+    echo "Uso: ./script.sh /caminho/para/wallpaper.jpg"
+    exit 1
+fi
+
+# 1. Aplicar Wallpaper (SWWW)
 swww img "$WALLPAPER" --transition-type any --transition-fps 60 --transition-duration 2
 
-# 2. Gerar cores com Pywal
+# 2. Gerar cores com Pywal (-n pula a aplicação no Xorg, já que usamos Wayland)
 wal -i "$WALLPAPER" -n
 
-# 3. Recarregar Waybar
-# O Waybar deve estar importando ~/.cache/wal/colors-waybar.css
+# 3. Importar as novas cores para o script usar abaixo
+. "${HOME}/.cache/wal/colors.sh"
+
+# 4. Recarregar Waybar
 pkill waybar && waybar &
 
-# 4. Recarregar Dunst
-# O Dunst precisa de um script extra ou configuração para ler pywal, 
-# mas geralmente reiniciar ajuda se estiver linkado:
-pkill dunst && dunst &
+# 5. Recarregar Dunst (Injetando cores e bordas arredondadas)
+pkill dunst
+dunst \
+    -lb "$color0" -lf "$color7" -lfr "$color2" \
+    -nb "$color0" -nf "$color7" -nfr "$color2" \
+    -cb "$color1" -cf "$color7" -cfr "$color1" \
+    -cr 12 -frame_width 2 &
 
-# 6. Configurar Tmux
-# Se seu tmux.conf tiver "source-file ~/.cache/wal/colors-tmux.conf"
+# 6. Atualizar outros apps
 tmux source-file ~/.config/tmux/tmux.conf
-
-# Atualiza o Alacritty (opcional, geralmente ele faz hot-reload sozinho)
-# O simples fato do arquivo .toml ser reescrito pelo wal já deve disparar a mudança.
-# Se não mudar, você pode forçar 'tocando' no arquivo de config principal:
 touch ~/.config/alacritty/alacritty.toml
-# 7. Configurar Alacritty (se ainda usar)
-# O Pywal geralmte atualiza o alacritty se configurado, nada a fazer aqui se o wal já roda.
-
-# Envia o sinal SIGUSR1 para todos os processos 'nvim'
 pkill -USR1 nvim
-# 8. Notificação
+
+# 7. Notificação
 notify-send "Tema alterado" "Wallpaper e cores atualizados!"
