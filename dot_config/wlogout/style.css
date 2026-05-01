@@ -1,0 +1,35 @@
+@import "../../.cache/huectl/colors-waybar.css";
+
+/* Reset e Fontes */
+* {
+    font-family: "JetBrainsMono Nerd Font";
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 25%;
+}
+
+window {
+    background-color: rgba(0, 0, 0, 0.5); /* Um overlay escuro no fundo da tela */
+}
+
+button {
+    background-color: @color8; /* Cor de fundo dos botões usando sua paleta */
+    color: @foreground;        /* Cor do texto/ícone */
+    border-radius: 20px;
+    border: 2px solid transparent;
+    margin: 15px;
+    transition: all 0.3s ease-in-out;
+}
+
+button:focus, button:active, button:hover {
+    background-color: @color2; /* Cor de destaque ao passar o mouse */
+    color: @background;        /* Inverte a cor do texto para contraste */
+    border: 2px solid @color2;
+    outline-style: none;
+}
+
+/* Aplicando as imagens dos ícones */
+#lock { background-image: image(url("/usr/share/wlogout/icons/lock.png")); }
+#logout { background-image: image(url("/usr/share/wlogout/icons/logout.png")); }
+#shutdown { background-image: image(url("/usr/share/wlogout/icons/shutdown.png")); }
+#reboot { background-image: image(url("/usr/share/wlogout/icons/reboot.png")); }

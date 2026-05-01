@@ -1,0 +1,95 @@
+{
+  "layer": "top",
+  "position": "top",
+  "margin-top": 5,
+  "margin-bottom": 0,
+
+  "modules-center": [
+    "clock",
+    "hyprland/workspaces",
+    "group/expand-1",
+    "mpris",
+    "group/expand",
+  ],
+  "hyprland/workspaces": {
+      "format": "{name}",
+      "active-only": false,
+      "all-outputs": false,
+      "persistent-workspaces": {
+          "*": [1, 2, 3, 4, 5] 
+      }
+  },
+  "mpris": {
+    "format": "{player_icon} {title}",
+    "format-paused": "⏸ {title}",
+    "max-length": 10
+  },
+  "tray": {
+    "spacing": 3,
+    "show-passive-items": true,
+  },
+  
+  "group/expand": {
+     "orientation": "horizontal",
+     "drawer": {
+      "transition-duration": 600,
+      "children-class": "not-power",
+      "transition-to-left": true,
+      "click-to-reveal":true
+     },
+     "modules": [
+       "custom/menu",
+       "tray"
+     ]
+  },
+   
+  "custom/menu":{
+    "format": "󰅃",
+    "rotate": 90,
+  },
+  "group/expand-1":{
+    "orientation":"horizontal",
+    "drawer":{
+      "transition-duration": 600,
+      "children-class": "not-power",
+      "transition-to-left": true,
+      "click-to-reveal": true
+    },
+    "modules":["pulseaudio","pulseaudio/slider"]
+  },
+  "pulseaudio": {
+    "format": "{icon}",
+    "rotate": 0,
+    "format-muted": "婢",
+    "tooltip-format": "{icon} {desc} // {volume}%",
+    "scroll-step": 5,
+    "format-icons": {
+      "headphone": "",
+      "hands-free": "",
+      "headset": "",
+      "phone": "",
+      "portable": "",
+      "car": "",
+      "default": ["", "", ""]
+      }
+  },
+  "pulseaudio#microphone": {
+    "format": "{format_source}",
+    "rotate": 0,
+    "format-source": "",
+    "format-source-muted": "",
+    "on-click": "pavucontrol -t 4",
+    "on-click-middle": "volumecontrol.sh -i m",
+    "on-scroll-up": "volumecontrol.sh -i i",
+    "on-scroll-down": "volumecontrol.sh -i d",
+    "tooltip-format": "{format_source} {source_desc} // {source_volume}%",
+    "scroll-step": 5
+  },
+  "pulseaudio/slider":{
+    "mim":5,
+    "max":100,
+    "rotate":0,
+    "device":"pulseaudio",
+    "scroll-step":1,
+  }
+}

@@ -1,0 +1,62 @@
+@import "../../.cache/huectl/colors-waybar.css";
+
+
+* {
+    border: none;
+    border-radius: 0;
+    font-family: "JetBrainsMono Nerd Font";
+    font-size: 14px;
+}
+
+window#waybar {
+    background: transparent;
+}
+
+.modules-center {
+    background-color: @background;
+    border-radius: 99px;
+    padding: 2px 15px;
+    margin: 5px 0;
+}
+#clock {
+  padding: 0 8px;
+}
+
+#workspaces button {
+    padding: 0 5px;
+    color: @foreground;
+    background-color: @color8;
+    border-radius:99px ;
+    padding: 0 6px;
+    margin: 2px 3px;
+    transition: all 0.3s ease-in-out;
+}
+
+#workspaces button.active {
+    background-color: @color2;
+    border-radius: 99px;
+    padding: 0 8px;
+    color: @color8;
+}
+
+#pulseaudio{
+    padding: 0 7px;
+}
+
+#pulseaudio-slider slider {
+  background: transparent;
+  box-shadow: none;
+  margin-right: 7px;
+}
+#pulseaudio-slider trough {
+  margin-top: -3px;
+  min-width: 90px;
+  min-height: 10px;
+  margin-bottom: -4px;
+  border-radius: 8px;
+  background: @color8;
+}
+#pulseaudio-slider highlight {
+  border-radius: 8px;
+  background-color: @color2;
+}

@@ -1,0 +1,13 @@
+@theme "~/.config/rofi/theme.rasi"
+configuration {
+modes: "window,drun,run,ssh";
+show-icons: true;
+  timeout {
+      action: "kb-cancel";
+      delay:  0;
+  }
+  filebrowser {
+      directories-first: true;
+      sorting-method:    "name";
+  }
+}
