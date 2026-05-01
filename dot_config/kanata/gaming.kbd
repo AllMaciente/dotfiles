@@ -1,0 +1,15 @@
+(defcfg
+  process-unmapped-keys yes
+)
+
+(defsrc
+  caps
+  lalt
+  lmet
+)
+
+(deflayer base
+  lctl
+  lalt
+  lmet
+)
