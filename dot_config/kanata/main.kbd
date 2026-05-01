@@ -1,18 +1,50 @@
 (defcfg
   process-unmapped-keys yes
 )
+
 (defsrc
   caps
+  lshift
+
   a s d f
-  j k l ;
+
+  u i o p
+  h j k l
+  n m , .
+
+  ;
 )
 
 (defvar
   tap-time 200
   hold-time 200
 )
+
 (defalias
-  caps-mod enter
+  ;; =========================
+  ;; CAPS
+  ;; tap = enter
+  ;; hold = navigation layer
+  ;; =========================
+
+  caps-mod (tap-hold $tap-time $hold-time enter (layer-while-held nav))
+
+  ;; =========================
+  ;; REAL LEFT SHIFT
+  ;; tap = shift
+  ;; hold = numpad layer
+  ;; =========================
+
+  shift-num (tap-hold $tap-time $hold-time lshift (layer-while-held num))
+
+  plus (macro S-=)
+  star (macro S-8)
+  minus -
+  slash /
+
+  ;; =========================
+  ;; HOME ROW MODS
+  ;; =========================
 
   a-mod (tap-hold $tap-time $hold-time a lmet)
   s-mod (tap-hold $tap-time $hold-time s lalt)
@@ -25,8 +57,53 @@
   ;-mod (tap-hold $tap-time $hold-time ; rmet)
 )
 
+;; =========================
+;; BASE
+;; =========================
+
 (deflayer base
   @caps-mod
+  @shift-num
+
   @a-mod @s-mod @d-mod @f-mod
-  @j-mod @k-mod @l-mod @;-mod
+
+  u i o p
+  h @j-mod @k-mod @l-mod
+  n m , .
+
+  @;-mod
+)
+
+;; =========================
+;; NAVIGATION
+;; =========================
+
+(deflayer nav
+  _
+  _
+
+  _ _ _ _
+
+  home pgdn pgup end
+  left down up right
+  ins del bspc tab
+
+  _
+)
+
+;; =========================
+;; NUMPAD
+;; =========================
+
+(deflayer num
+  _
+  _
+
+  _ _ _ _
+
+  7 8 9 @star
+  4 5 6 @minus
+  1 2 3 @plus
+
+  0
 )
