@@ -53,7 +53,7 @@
 
   j-mod (tap-hold $tap-time $hold-time j rctl)
   k-mod (tap-hold $tap-time $hold-time k rsft)
-  l-mod (tap-hold $tap-time $hold-time l ralt)
+  l-mod (tap-hold $tap-time $hold-time l lalt)
   ;-mod (tap-hold $tap-time $hold-time ; rmet)
 )
 
