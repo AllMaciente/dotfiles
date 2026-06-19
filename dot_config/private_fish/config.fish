@@ -35,3 +35,9 @@ end
 # opencode
 fish_add_path /home/all/.opencode/bin
 set -Ux XDG_CACHE_HOME $HOME/.cache
+# pnpm
+set -gx PNPM_HOME "/home/all/.local/share/pnpm"
+if not string match -q -- "$PNPM_HOME/bin" $PATH
+  set -gx PATH "$PNPM_HOME/bin" $PATH
+end
+# pnpm end
