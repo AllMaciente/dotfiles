@@ -1,0 +1,27 @@
+{
+  "name": "tokyo-night",
+  "colors": {
+    "color0": "#f7768e",
+    "color1": "#ff9e64",
+    "color2": "#e0af68",
+    "color3": "#cfc9c2",
+    "color4": "#9ece6a",
+    "color5": "#73dacb",
+    "color6": "",
+    "color7": "",
+    "color8": "",
+    "color9": "",
+    "color10": "",
+    "color11": "7",
+    "color12": "#9ccfd8",
+    "color13": "#c4a7e7",
+    "color14": "#ebbcba",
+    "color15": "#e0def4",
+    "background": "#1a1b26",
+    "foreground": "#e0def4",
+    "cursor": "#e0def4"
+  },
+  "custom": {
+    "vscode": "Rosé Pine"
+  }
+}
