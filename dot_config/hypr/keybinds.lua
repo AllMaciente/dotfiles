@@ -11,7 +11,7 @@ hl.bind(mod .. " + SPACE", hl.dsp.exec_cmd(menu))
 hl.bind(mod .. " + X", hl.dsp.exec_cmd("wlogout"))
 
 -- ── Window Management ─────────────────────
-hl.bind(mod .. " + SHIFT + Q", hl.dsp.window.kill())
+hl.bind(mod .. " + SHIFT + Q", hl.dsp.window.close())
 hl.bind(mod .. " + F", hl.dsp.window.fullscreen())
 hl.bind(mod .. "+ SHIFT + F", hl.dsp.window.float({ action = "toggle" }))
 hl.bind(mod .. " + P", hl.dsp.window.pin())
