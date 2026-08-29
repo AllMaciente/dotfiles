@@ -14,16 +14,19 @@ if [ -n "$WALLPAPER_PATH" ]; then
   awww img "$WALLPAPER_PATH" --transition-type any --transition-fps 60
 fi
 
-# ── Reload Waybar ─────────────────────────────────────────────
-# Envia SIGUSR2 para recarregar config e css sem fechar o processo
-if pgrep -x waybar >/dev/null; then
-    killall -SIGUSR2 waybar
-    echo "waybar: configuration reloaded."
+# ── Reload Quickshell ──────────────────────────────────────────
+if pgrep -x quickshell >/dev/null; then
+    pkill -x quickshell
+    # pequena pausa pra garantir que o processo antigo morreu
+    sleep 0.2
+    quickshell >/dev/null 2>&1 &
+    disown
+    echo "quickshell: restarted."
 else
-    waybar &
-    echo "waybar: started."
+    quickshell >/dev/null 2>&1 &
+    disown
+    echo "quickshell: started."
 fi
-
 # ── vscode  ──────────────────────────────────────────────────
 TEMA="$HUECTL_custom_vscode"
 CONFIG="$HOME/.config/VSCodium/User/settings.json"
