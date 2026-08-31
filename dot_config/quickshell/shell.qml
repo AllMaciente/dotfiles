@@ -1,74 +1,45 @@
 import Quickshell
-import Quickshell.Io
-import QtQuick
-import QtQuick.Layouts
-import "./theme" as Theme
-import "./notch"
+import "./widgets" as Widgets
 
-ShellRoot {
+PanelWindow {
+    id: root
 
-    IpcHandler {
-        target: "notch"
-        function setPage(page: string): void {
-            if (page === "idle") stack.currentIndex = 0
-            else if (page === "music") stack.currentIndex = 1
-            else if (page === "tray") stack.currentIndex = 2
-
-        }
+    anchors {
+        top: true
+        left: true
+        right: true
     }
 
-    PanelWindow {
-        id: notchWindow
-        anchors.top: true
-        margins.top: 8
-        color: "transparent"
+    color: "transparent"
+    margins.top: 8
+    implicitHeight: Math.max(
+        leftPill.implicitHeight,
+        centerPill.implicitHeight,
+        rightPill.implicitHeight
+    ) + 8
 
-        property Item activePage: stack.children[stack.currentIndex]
-        property real activeRadius: activePage && activePage.cornerRadius !== undefined
-                                         ? activePage.cornerRadius
-                                         : implicitHeight / 2
+    Widgets.PillWidget {
+        id: leftPill
+        anchors.left: parent.left
+        anchors.verticalCenter: parent.verticalCenter
+        anchors.leftMargin: 14
 
-        implicitWidth: activePage ? activePage.implicitWidth : 180
-        implicitHeight: activePage ? activePage.implicitHeight : 32
+        Widgets.Workspaces {}
+    }
 
-        Behavior on implicitWidth { NumberAnimation { duration: 250; easing.type: Easing.OutCubic } }
-        Behavior on implicitHeight { NumberAnimation { duration: 250; easing.type: Easing.OutCubic } }
+    Widgets.PillWidget {
+        id: centerPill
+        anchors.centerIn: parent
 
-        Rectangle {
-            id: notchBackground
-            anchors.fill: parent
-            radius: notchWindow.activeRadius
-            color: Theme.Colors.background
-            clip: true
+         Widgets.ClockContainer {}
+    }
 
-            Behavior on radius {
-                NumberAnimation { duration: 250; easing.type: Easing.OutCubic }
-            }
+    Widgets.PillWidget {
+        id: rightPill
+        anchors.right: parent.right
+        anchors.verticalCenter: parent.verticalCenter
+        anchors.rightMargin: 14
 
-            HoverHandler {
-                id: notchHover
-                onHoveredChanged: {
-                    if (hovered) {
-                        // só expande se estiver em idle
-                        if (stack.currentIndex === 0)
-                            stack.currentIndex = 2
-                    } else {
-                        // só volta pro idle se saiu da view expandida
-                        if (stack.currentIndex === 2)
-                            stack.currentIndex = 0
-                    }
-                }
-            }
-
-            StackLayout {
-                id: stack
-                anchors.fill: parent
-                currentIndex: 0
-
-                IdleView { }
-                MusicView { }
-                TrayView { }
-            }
-        }
+        Widgets.SystemTray {}
     }
 }
