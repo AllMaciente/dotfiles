@@ -1,15 +1,23 @@
 import Quickshell
+import Quickshell.Io
 import QtQuick
 import QtQuick.Layouts
 
 Item {
     id: root
 
-    property bool locked: false
-    property bool expanded: hoverHandler.hovered || locked
+    property bool clockLocked: false
+    property bool clockExpanded: hoverHandler.hovered || clockLocked
 
-    implicitWidth: stack.currentIndex === 0 ? clockView.implicitWidth : bigClockView.implicitWidth
-    implicitHeight: stack.currentIndex === 0 ? clockView.implicitHeight : bigClockView.implicitHeight
+ 
+    property int ipcIndex: 0
+
+    property int currentIndex: ipcIndex !== 0 ? ipcIndex : (clockExpanded ? 1 : 0)
+
+    property var views: [clockView, bigClockView]
+
+    implicitWidth: views[currentIndex] ? views[currentIndex].implicitWidth : 0
+    implicitHeight: views[currentIndex] ? views[currentIndex].implicitHeight : 0
 
     Behavior on implicitWidth {
         NumberAnimation { duration: 200; easing.type: Easing.OutCubic }
@@ -22,10 +30,18 @@ Item {
         id: hoverHandler
     }
 
+    IpcHandler {
+        target: "center"
+
+        function toggle(index: int): void {
+            root.ipcIndex = (root.ipcIndex === index) ? 0 : index
+        }
+    }
+
     StackLayout {
         id: stack
         anchors.fill: parent
-        currentIndex: root.expanded ? 1 : 0
+        currentIndex: root.currentIndex
 
         ClockWidget {
             id: clockView
@@ -33,7 +49,7 @@ Item {
 
         BigClock {
             id: bigClockView
-            onBackgroundClicked: root.locked = !root.locked
+            onBackgroundClicked: root.clockLocked = !root.clockLocked
         }
     }
 }

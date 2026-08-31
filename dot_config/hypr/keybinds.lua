@@ -20,15 +20,13 @@ hl.bind(mod .. " + P", hl.dsp.window.pin())
 hl.bind(mod .. " + mouse:272", hl.dsp.window.drag(), { mouse = true })
 hl.bind(mod .. " + mouse:273", hl.dsp.window.resize(), { mouse = true })
 
--- Aumentar o volume (Mod + Shift + Scroll para cima)
-hl.bind(mod .. " + SHIFT + mouse_down", hl.dsp.exec_cmd("wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SINK@ 5%+"),
+-- Aumentar o volume (tecla de mídia)
+hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd("wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SINK@ 5%+"),
+    { repeating = true })
+-- Diminuir o volume (tecla de mídia)
+hl.bind("XF86AudioLowerVolume", hl.dsp.exec_cmd("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"),
     { repeating = true })
 
--- Diminuir o volume (Mod + Shift + Scroll para baixo)
-hl.bind(mod .. " + SHIFT + mouse_up", hl.dsp.exec_cmd("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"),
-    { repeating = true })
-
--- ── Focus Movement (Vim Style) ────────────
 hl.bind(mod .. " + H", hl.dsp.focus({ direction = "l" }))
 hl.bind(mod .. " + J", hl.dsp.focus({ direction = "d" }))
 hl.bind(mod .. " + K", hl.dsp.focus({ direction = "u" }))
