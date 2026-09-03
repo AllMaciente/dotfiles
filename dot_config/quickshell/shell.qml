@@ -40,6 +40,7 @@ PanelWindow {
         anchors.verticalCenter: parent.verticalCenter
         anchors.rightMargin: 14
 
-        Widgets.SystemTray {}
+        Widgets.System {}
+        Widgets.MicCamIndicator {}
     }
 }

@@ -8,7 +8,7 @@ local menu = "rofi -show drun"
 hl.bind(mod .. " + RETURN", hl.dsp.exec_cmd(terminal))
 hl.bind(mod .. " + E", hl.dsp.exec_cmd(fileManager))
 hl.bind(mod .. " + SPACE", hl.dsp.exec_cmd(menu))
-hl.bind(mod .. " + X", hl.dsp.exec_cmd("wlogout"))
+hl.bind(mod .. " + X", hl.dsp.exec_cmd("quickshell ipc call center toggle 3"))
 
 -- ── Window Management ─────────────────────
 hl.bind(mod .. " + SHIFT + Q", hl.dsp.window.close())
