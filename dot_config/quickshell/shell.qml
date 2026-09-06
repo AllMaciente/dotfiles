@@ -1,4 +1,5 @@
 import Quickshell
+import Quickshell.Wayland
 import "./widgets" as Widgets
 
 PanelWindow {
@@ -18,6 +19,10 @@ PanelWindow {
         rightPill.implicitHeight
     ) + 8
 
+    WlrLayershell.keyboardFocus: clockContainer && clockContainer.currentIndex === 3
+        ? WlrKeyboardFocus.Exclusive
+        : WlrKeyboardFocus.None
+
     Widgets.PillWidget {
         id: leftPill
         anchors.left: parent.left
@@ -31,7 +36,9 @@ PanelWindow {
         id: centerPill
         anchors.centerIn: parent
 
-         Widgets.ClockContainer {}
+        Widgets.ClockContainer {
+            id: clockContainer
+        }
     }
 
     Widgets.PillWidget {
@@ -42,5 +49,6 @@ PanelWindow {
 
         Widgets.System {}
         Widgets.MicCamIndicator {}
+        Widgets.SystemTray {}
     }
 }

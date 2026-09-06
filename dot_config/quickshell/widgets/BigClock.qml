@@ -1,7 +1,7 @@
 import Quickshell
+import QtQuick.Layouts
 import QtQuick
 import "../theme" as Theme
-
 Item {
     id: root
     implicitWidth: textLabel.implicitWidth * 3
@@ -17,7 +17,6 @@ Item {
     TapHandler {
         onTapped: root.backgroundClicked()
     }
-
     Theme.AppText {
         id: textLabel
         anchors.centerIn: parent
@@ -25,4 +24,5 @@ Item {
         font.pixelSize:28
         color: Theme.Colors.foreground
     }
+
 }

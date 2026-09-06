@@ -12,9 +12,14 @@ Item {
  
     property int ipcIndex: 0
 
-    property int currentIndex: ipcIndex !== 0 ? ipcIndex : (clockExpanded ? 1 : 0)
-
-    property var views: [clockView, bigClockView]
+    property bool volumeActive: false
+    
+    property int currentIndex: {
+        if (volumeActive) return 2
+        if (ipcIndex !== 0) return ipcIndex
+        return clockExpanded ? 1 : 0
+    }
+    property var views: [clockView, bigClockView,volumeView,powerView]
 
     implicitWidth: views[currentIndex] ? views[currentIndex].implicitWidth : 0
     implicitHeight: views[currentIndex] ? views[currentIndex].implicitHeight : 0
@@ -51,5 +56,23 @@ Item {
             id: bigClockView
             onBackgroundClicked: root.clockLocked = !root.clockLocked
         }
+        VolumeWidget {
+            id: volumeView
+            onChanged: {
+                root.volumeActive = true
+                volumeHideTimer.restart()
+            }
+        }
+        PowerWidget {
+            id: powerView
+            onCloseRequested: root.ipcIndex = 0
+        }
+
+    }
+
+    Timer {
+        id: volumeHideTimer
+        interval: 1000
+        onTriggered: root.volumeActive = false
     }
 }
