@@ -10,15 +10,13 @@ Item {
 
     property int ipcIndex: 0
     property bool volumeActive: false
-    property bool notifActive: false
-
+    
     property int currentIndex: {
-        if (notifActive) return 4
         if (volumeActive) return 2
         if (ipcIndex !== 0) return ipcIndex
         return clockExpanded ? 1 : 0
     }
-    property var views: [clockView, bigClockView, volumeView, powerView, notifView]
+    property var views: [clockView, bigClockView, volumeView, powerView]
     implicitWidth: views[currentIndex] ? views[currentIndex].implicitWidth : 0
     implicitHeight: views[currentIndex] ? views[currentIndex].implicitHeight : 0
     Behavior on implicitWidth {
@@ -37,7 +35,7 @@ Item {
         }
     }
 
-    Connections {
+  Connections {
         target: NotificationServer
         function onNewNotification(notification) {
             notifView.notification = notification
@@ -46,40 +44,41 @@ Item {
         }
     }
 
-    StackLayout {
-        id: stack
-        anchors.fill: parent
-        currentIndex: root.currentIndex
-        ClockWidget {
-            id: clockView
-        }
-        BigClock {
-            id: bigClockView
-            onBackgroundClicked: root.clockLocked = !root.clockLocked
-        }
-        VolumeWidget {
-            id: volumeView
-            onChanged: {
-                root.volumeActive = true
-                volumeHideTimer.restart()
-            }
-        }
-        PowerWidget {
-            id: powerView
-            onCloseRequested: root.ipcIndex = 0
-        }
-        NotificationWidget {
-            id: notifView
-        }
+  StackLayout {
+    id: stack
+    anchors.fill: parent
+    currentIndex: root.currentIndex
+
+    ClockWidget {
+        id: clockView
+        Layout.fillWidth: false
+        Layout.fillHeight: false
     }
+    BigClock {
+        id: bigClockView
+        onBackgroundClicked: root.clockLocked = !root.clockLocked
+        Layout.fillWidth: false
+        Layout.fillHeight: false
+    }
+    VolumeWidget {
+        id: volumeView
+        onChanged: {
+            root.volumeActive = true
+            volumeHideTimer.restart()
+        }
+        Layout.fillWidth: false
+        Layout.fillHeight: false
+    }
+    PowerWidget {
+        id: powerView
+        onCloseRequested: root.ipcIndex = 0
+        Layout.fillWidth: false
+        Layout.fillHeight: false
+    } 
+  }
     Timer {
         id: volumeHideTimer
         interval: 1000
         onTriggered: root.volumeActive = false
-    }
-    Timer {
-        id: notifHideTimer
-        interval: 4000
-        onTriggered: root.notifActive = false
     }
 }

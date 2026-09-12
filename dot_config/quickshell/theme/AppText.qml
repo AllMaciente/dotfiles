@@ -4,6 +4,7 @@ Text {
     font.family: "JetBrainsMono Nerd Font"
     font.pixelSize: 14
     color: Colors.foreground
+    horizontalAlignment: Text.AlignHCenter
 
     Behavior on opacity {
         NumberAnimation { duration: 200; easing.type: Easing.OutCubic }
