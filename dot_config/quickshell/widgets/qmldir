@@ -3,6 +3,7 @@ Workspaces 1.0 Workspaces.qml
 ClockContainer 1.0 ClockContainer.qml
 ClockWidget 1.0 ClockWidget.qml
 VolumeWidget 1.0 VolumeWidget.qml
+NotificationWidget 1.0 NotificationWidget.qml
 PowerWidget 1.0 PowerWidget.qml
 BigClock 1.0 BigClock.qml
 System 1.0 System.qml

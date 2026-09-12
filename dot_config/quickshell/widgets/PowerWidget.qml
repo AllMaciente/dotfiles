@@ -14,7 +14,7 @@ Item {
     property int selectedIndex: 0
     readonly property var actions: [
         { name: "lock",     icon: "󰌾", cmd: ["hyprlock"] },
-        { name: "logout",   icon: "󰍃", cmd: ["hyprctl", "dispatch", "exit"] },
+        { name: "logout",   icon: "󰍃", cmd: ["loginctl", "terminate-user", "$USER"] },
         { name: "reboot",   icon: "󰜉", cmd: ["systemctl", "reboot"] },
         { name: "shutdown", icon: "󰐥", cmd: ["systemctl", "poweroff"] }
     ]

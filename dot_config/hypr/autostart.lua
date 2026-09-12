@@ -17,3 +17,7 @@ end)
 hl.on("hyprland.start", function ()
   hl.exec_cmd("wl-paste --watch clipvault store")
 end)
+
+hl.on("hyprland.start", function ()
+  hl.exec_cmd("trayd")
+end)
