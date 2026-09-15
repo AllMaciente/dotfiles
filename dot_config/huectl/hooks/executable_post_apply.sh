@@ -27,6 +27,20 @@ else
     disown
     echo "quickshell: started."
 fi
+
+# ── Reload swaync ────────────────────────────────────────────
+if pgrep -x swaync >/dev/null; then
+    pkill -x swaync
+    sleep 0.2
+    swaync >/dev/null 2>&1 &
+    disown
+    echo "swaync: restarted."
+else
+    swaync >/dev/null 2>&1 &
+    disown
+    echo "swaync: started."
+fi
+
 # ── vscode  ──────────────────────────────────────────────────
 TEMA="$HUECTL_custom_vscode"
 CONFIG="$HOME/.config/VSCodium/User/settings.json"

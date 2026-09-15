@@ -25,9 +25,9 @@ Item {
     Behavior on implicitHeight {
         NumberAnimation { duration: 200; easing.type: Easing.OutCubic }
     }
-    HoverHandler {
-        id: hoverHandler
-    }
+    // HoverHandler {
+    //     id: hoverHandler
+    // }
     IpcHandler {
         target: "center"
         function toggle(index: int): void {
